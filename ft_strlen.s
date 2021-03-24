@@ -2,14 +2,14 @@ global _ft_strlen
 
 section .text
 _ft_strlen:
-	mov		rax, 0			;len = 0
+	mov		eax, 0
 
 .loop:
-	cmp		byte [rdi], 0	;if (*s == 0)
-	je		.return			;return (i)
-	inc		rax				;len++
-	inc		rdi				;s++
-	jmp		.loop			;goto loop
+	cmp		byte [rdi], 0
+	je		.return
+	inc		eax
+	inc		rdi
+	jmp		.loop
 
 .return:
 	ret

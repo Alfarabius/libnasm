@@ -2,8 +2,14 @@ NAME =	libasm.a
 
 test:
 	nasm -f macho64 ft_strlen.s
-	gcc main.c ft_strlen.o
+	nasm -f macho64 ft_write.s
+	nasm -f macho64 ft_read.s
+	nasm -f macho64 ft_strcmp.s
+	nasm -f macho64 ft_strcpy.s
+	gcc main.c *.o
 
 clean:
-	rm -f a.out
 	rm -f *.o
+
+fclean: clean
+	rm -f a.out

@@ -6,25 +6,44 @@
 /*   By: mrosie <mrosie@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/23 11:43:50 by mrosie            #+#    #+#             */
-/*   Updated: 2021/03/23 17:42:34 by mrosie           ###   ########.fr       */
+/*   Updated: 2021/03/24 18:23:53 by mrosie           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <unistd.h>
-
-size_t	ft_strlen(const char *s);
-char	*ft_stpcpy(char *dst, const char *src);
-int		ft_strcmp(const char *s1, const char *s2);
-ssize_t	ft_write(int fildes, const void *buf, size_t nbyte);
-ssize_t	ft_read(int fildes, void *buf, size_t nbyte);
-char	*ft_strdup(const char *s1);
-
-#include <stdio.h>
+#include "libasm.h"
 
 int	main(void)
 {
-	char *str = "Hello, World!";
-	printf("_ft_strlen return: %zu\n", ft_strlen(str));
+	char	*str;
+	char	file_content[1024];
+	int		fd;
+	int		bwr;
+
+	fd = open("./read.txt", O_RDWR);
+	if (!fd)
+		return(1);
+	str = "Hello, World!";
+	printf(MAG);
+	printf("________LIBASM_________\n");
+	;
+	printf(RED);
+	ft_write(1, "\"", 1);
+	ft_write(1, str, ft_strlen(str));
+	ft_write(1, "\"", 1);
+	printf(" - is our string!\n");
+	printf(GREEN);
+	printf("length of our string is: %zu\n", ft_strlen(str));
+	printf(YELLOW);
+	bwr = ft_read(fd, file_content, 1024);
+	printf("bytse was read from read.txt: %d\n", bwr);
+	printf("FILE read.txt content readed by _ft_read:\n")
+	;
+	ft_write(1, file_content, bwr - 1);
+	printf(RED);
+	printf("\nresult of compare: %d\n", ft_strcmp("HELLO", "HELLO"));
+	printf("result of compare: %d\n", ft_strcmp("HELLO", "bye"));
+	printf("result of compare: %d\n", ft_strcmp("", ""));
+	printf("result of compare: %d\n", ft_strcmp("", "bye"));
+	printf("result of compare: %d\n", ft_strcmp("HELLO", ""));
 	return (0);
 }
