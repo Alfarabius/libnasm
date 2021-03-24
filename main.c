@@ -6,7 +6,7 @@
 /*   By: mrosie <mrosie@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/23 11:43:50 by mrosie            #+#    #+#             */
-/*   Updated: 2021/03/24 18:23:53 by mrosie           ###   ########.fr       */
+/*   Updated: 2021/03/24 19:02:29 by mrosie           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	main(void)
 
 	fd = open("./read.txt", O_RDWR);
 	if (!fd)
-		return(1);
+		return (1);
 	str = "Hello, World!";
 	printf(MAG);
 	printf("________LIBASM_________\n");
@@ -40,10 +40,10 @@ int	main(void)
 	;
 	ft_write(1, file_content, bwr - 1);
 	printf(RED);
-	printf("\nresult of compare: %d\n", ft_strcmp("HELLO", "HELLO"));
-	printf("result of compare: %d\n", ft_strcmp("HELLO", "bye"));
-	printf("result of compare: %d\n", ft_strcmp("", ""));
-	printf("result of compare: %d\n", ft_strcmp("", "bye"));
-	printf("result of compare: %d\n", ft_strcmp("HELLO", ""));
+	printf("\nresult of compare 1: %d\n", ft_strcmp("HELLO", "HELLO"));
+	printf("result of compare 2: %d\n", ft_strcmp("HELLO", "bye"));
+	printf("result of compare 3: %d\n", ft_strcmp("", ""));
+	printf("result of compare 4: %d\n", ft_strcmp("", "bye"));
+	printf("result of compare 5: %d\n", ft_strcmp("HELLO", ""));
 	return (0);
 }
