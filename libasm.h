@@ -6,7 +6,7 @@
 /*   By: mrosie <mrosie@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 16:29:11 by mrosie            #+#    #+#             */
-/*   Updated: 2021/03/25 13:40:33 by mrosie           ###   ########.fr       */
+/*   Updated: 2021/03/25 17:18:55 by mrosie           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@
 # define WHITE  "\x1B[37m"
 
 size_t	ft_strlen(const char *s);
-char	*ft_stpcpy(char *dst, const char *src);
+char	*ft_strcpy(char *dst, const char *src);
 int		ft_strcmp(const char *s1, const char *s2);
 ssize_t	ft_write(int fildes, const void *buf, size_t nbyte);
 ssize_t	ft_read(int fildes, void *buf, size_t nbyte);

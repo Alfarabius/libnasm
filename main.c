@@ -6,7 +6,7 @@
 /*   By: mrosie <mrosie@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/23 11:43:50 by mrosie            #+#    #+#             */
-/*   Updated: 2021/03/25 14:06:49 by mrosie           ###   ########.fr       */
+/*   Updated: 2021/03/25 17:40:29 by mrosie           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 int	main(void)
 {
 	char	*str;
+	char	tmp[1024];
+	char	tmp2[1];
 	char	file_content[1024];
 	int		fd;
 	int		bwr;
@@ -22,7 +24,7 @@ int	main(void)
 	fd = open("./read.txt", O_RDWR);
 	if (!fd)
 		return (1);
-	str = "Hello, World!";
+	str = "Hello, World!\0ddddddddddddd";
 	printf(MAG);
 	printf("________LIBASM_________\n");
 	;
@@ -52,5 +54,9 @@ int	main(void)
 	printf("result of compare 3: %d\n", strcmp("", ""));
 	printf("result of compare 4: %d\n", strcmp("", "bye"));
 	printf("result of compare 5: %d\n", strcmp("HELLO", ""));
+	ft_strcpy(file_content, str);
+	printf("%s\n", file_content);
+	strcpy(tmp, str);
+	printf("%s\n", tmp);
 	return (0);
 }

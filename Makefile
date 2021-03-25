@@ -6,6 +6,7 @@ test:
 	nasm -f macho64 ft_read.s
 	nasm -f macho64 ft_strcmp.s
 	nasm -f macho64 ft_strcpy.s
+	nasm -f macho64 ft_strdup.s
 	gcc main.c *.o
 	make clean
 
