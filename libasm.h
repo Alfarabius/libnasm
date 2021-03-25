@@ -6,16 +6,16 @@
 /*   By: mrosie <mrosie@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 16:29:11 by mrosie            #+#    #+#             */
-/*   Updated: 2021/03/24 16:45:34 by mrosie           ###   ########.fr       */
+/*   Updated: 2021/03/25 13:40:33 by mrosie           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBASM_H
 # define LIBASM_H
-# include <stdlib.h>
 # include <unistd.h>
 # include <stdio.h>
 # include <fcntl.h>
+# include <string.h>
 # define STANDART  "\x1B[0m"
 # define RED  "\x1B[31m"
 # define GREEN  "\x1B[32m"

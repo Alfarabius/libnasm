@@ -7,6 +7,7 @@ test:
 	nasm -f macho64 ft_strcmp.s
 	nasm -f macho64 ft_strcpy.s
 	gcc main.c *.o
+	make clean
 
 clean:
 	rm -f *.o

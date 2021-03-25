@@ -1,20 +1,36 @@
 global _ft_strcmp
 
 section .text
+.negative:
+	mov		eax, -1
+	jmp		.return
+
+.positive:
+	mov		eax, 1
+	jmp		.return
+
+.value:
+	movsx	eax, al
+	cmp		eax, 0
+	jg		.positive
+	cmp		eax, 0
+	jl		.negative
+	jmp		.return
+
 _ft_strcmp:
-	mov		rax, 0
+	mov		eax, 0
 
 .loop:
-	mov		rax, [rdi]
-	sub		rax, [rsi]
-	cmp		rax, 0
-	jne		.return
-	inc		rdi
-	inc		rsi
+	mov		al, byte [rdi]
+	sub		al, [rsi]
+	cmp		al, 0
+	jne		.value
 	cmp		byte [rdi], 0
-	je		.return
+	je		.value
 	cmp		byte [rsi], 0
-	je		.return
+	je		.value
+	inc		rsi
+	inc		rdi
 	jmp		.loop
 
 .return:
