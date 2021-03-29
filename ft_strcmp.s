@@ -10,7 +10,6 @@ section .text
 	jmp		.return
 
 .value:
-	movsx	eax, al
 	cmp		eax, 0
 	jg		.positive
 	cmp		eax, 0
@@ -18,11 +17,13 @@ section .text
 	jmp		.return
 
 _ft_strcmp:
-	mov		eax, 0
+	xor		rax, rax
+	xor		rdx, rdx
 
 .loop:
 	mov		al, byte [rdi]
-	sub		al, [rsi]
+	mov		dl, byte [rsi]
+	sub		rax, rdx
 	cmp		al, 0
 	jne		.value
 	cmp		byte [rdi], 0
