@@ -6,7 +6,7 @@
 /*   By: mrosie <mrosie@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 16:29:11 by mrosie            #+#    #+#             */
-/*   Updated: 2021/03/25 17:18:55 by mrosie           ###   ########.fr       */
+/*   Updated: 2021/03/30 13:18:58 by mrosie           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <stdio.h>
 # include <fcntl.h>
 # include <string.h>
+# include <errno.h>
 # define STANDART  "\x1B[0m"
 # define RED  "\x1B[31m"
 # define GREEN  "\x1B[32m"

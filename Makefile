@@ -1,17 +1,43 @@
-NAME =	libasm.a
+NAME	= libasm.a
+HEAD	= libasm.h
+OBJS_PATH	= ./objs
+SRCS	= ft_strlen.s \
+		ft_write.s \
+		ft_read.s \
+		ft_strcmp.s \
+		ft_strcpy.s \
+		ft_strdup.s
+OBJS	= $(addprefix $(OBJS_PATH)/, $(SRCS:.s=.o))
+ARCH	= ar rcs
+CCOMP	= gcc
+NASM	= nasm -f macho64
+RM		= rm -f
 
-test:
-	nasm -f macho64 ft_strlen.s
-	nasm -f macho64 ft_write.s
-	nasm -f macho64 ft_read.s
-	nasm -f macho64 ft_strcmp.s
-	nasm -f macho64 ft_strcpy.s
-	nasm -f macho64 ft_strdup.s
-	gcc main.c *.o
-	make clean
+.PHONY: all clean fclean re test
+
+all:	$(OBJS_PATH) $(NAME)
+
+$(OBJS_PATH):
+	mkdir -p $@
+
+$(OBJS_PATH)/%.o: ./%.s $(HEAD)
+	@echo "compile $@"
+	$(NASM) $< -o $@
+
+$(NAME):	$(OBJS)
+	@ echo "add $? to $@"
+	$(ARCH) $@ $?
+
+test: re
+	@ $(CCOMP) -I ./ main.c $(OBJS)
+	@ make clean
 
 clean:
-	rm -f *.o
+	@ $(RM) $(OBJS)
+	@ rm -rf $(OBJS_PATH)
 
 fclean: clean
-	rm -f a.out
+	@ $(RM) $(NAME)
+	@ $(RM) a.out
+
+re: fclean all

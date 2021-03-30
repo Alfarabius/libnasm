@@ -3,7 +3,15 @@ extern ___error
 
 section .text
 _ft_write:
-	mov eax, 0x2000004
+	mov		eax, 0x2000004
 	syscall
-	jc ___error
+	jc		.err
+	ret
+
+.err:
+	push	rax
+	call	___error
+	pop		rdx
+	mov		[rax], edx
+	mov		rax, -1
 	ret
