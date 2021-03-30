@@ -21,12 +21,12 @@ $(OBJS_PATH):
 	mkdir -p $@
 
 $(OBJS_PATH)/%.o: ./%.s $(HEAD)
-	@echo "compile $@"
-	$(NASM) $< -o $@
+	@ echo "compile $@"
+	@ $(NASM) $< -o $@
 
 $(NAME):	$(OBJS)
 	@ echo "add $? to $@"
-	$(ARCH) $@ $?
+	@ $(ARCH) $@ $?
 
 test: re
 	@ $(CCOMP) -I ./ main.c $(OBJS)

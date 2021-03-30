@@ -6,7 +6,7 @@
 /*   By: mrosie <mrosie@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/23 11:43:50 by mrosie            #+#    #+#             */
-/*   Updated: 2021/03/30 17:03:55 by mrosie           ###   ########.fr       */
+/*   Updated: 2021/03/30 17:10:47 by mrosie           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ int	main(void)
 	char	buf[1024];
 	int		fd;
 	int		bwr;
-	char *str1 = "1232";
-	char *err_msg;
+	char	*str1 = "1232";
+	char	*err_msg;
 
 	fd = open("./read.txt", O_RDWR);
 	if (!fd)
