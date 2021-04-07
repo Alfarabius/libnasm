@@ -10,7 +10,14 @@ _ft_strdup:
 	mov rdi, rax
 	add rdi, 1
 	call _malloc
+	cmp rax, 0
+	je .error
 	pop rsi
 	mov rdi, rax
 	call _ft_strcpy
+	ret
+
+.error:
+	pop rdi
+	mov rax, 0
 	ret
