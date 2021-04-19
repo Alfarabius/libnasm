@@ -2,6 +2,7 @@ global _ft_strdup
 extern _malloc
 extern _ft_strlen
 extern _ft_strcpy
+extern ___error
 
 section .text
 _ft_strdup:
@@ -19,5 +20,8 @@ _ft_strdup:
 
 .error:
 	pop rdi
+	call	___error
+	pop		rdx
+	mov		[rax], edx
 	mov rax, 0
 	ret
